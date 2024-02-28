@@ -44,10 +44,14 @@
 // export default page;
 
 // pages/index.js
-'use client'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchDataStart, fetchDataSuccess, fetchDataFailure } from '@/redux/dataSlice';
+"use client";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchDataStart,
+  fetchDataSuccess,
+  fetchDataFailure,
+} from "@/redux/dataSlice";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -55,8 +59,6 @@ import Image from "next/image";
 const Page = () => {
   const dispatch = useDispatch();
   const { items, isLoading, error } = useSelector((state) => state.data);
- 
-
   useEffect(() => {
     const fetchData = async () => {
       dispatch(fetchDataStart());
@@ -68,14 +70,13 @@ const Page = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await res.json();
-        console.log(data)
+        console.log(data);
         dispatch(fetchDataSuccess(data));
       } catch (error) {
         dispatch(fetchDataFailure(error.message));
       }
     };
     fetchData();
-   
   }, [dispatch]);
 
   if (isLoading) {
@@ -89,7 +90,11 @@ const Page = () => {
   return (
     <div className={styles.mainContainer}>
       {items.map((item) => (
-        <Link href={`/blog/${item.id}`} className={styles.container} key={item.id}>
+        <Link
+          href={`/blog/${item.id}`}
+          className={styles.container}
+          key={item.id}
+        >
           <div className={styles.imageContainer}>
             <Image
               src={item.url}

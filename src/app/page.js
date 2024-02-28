@@ -10,7 +10,7 @@ export default function Home() {
           Better design for your digital products.
         </h1>
         <p>
-          Turning your Idea into Reality . we bring together the teams from the
+          Turning your Idea into Reality. we bring together the teams from the
           global tech industry.
         </p>
         <Button />

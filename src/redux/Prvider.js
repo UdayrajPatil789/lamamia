@@ -11,4 +11,4 @@ const Prvider = ({children}) => {
   )
 }
 
-export default Prvider;
+export default Prvider; 
